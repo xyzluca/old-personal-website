@@ -3,6 +3,10 @@ import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { highlight } from 'sugar-high'
 import React from 'react'
+import { Fraunces, Atkinson_Hyperlegible } from 'next/font/google'
+
+const fraunces = Fraunces({ subsets: ['latin'] })
+const atkinson = Atkinson_Hyperlegible({ weight: '400', subsets: ['latin'] })
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -69,7 +73,7 @@ function createHeading(level) {
     let slug = slugify(children)
     return React.createElement(
       `h${level}`,
-      { id: slug },
+      { id: slug, className: fraunces.className },
       [
         React.createElement('a', {
           href: `#${slug}`,
@@ -101,9 +105,11 @@ let components = {
 
 export function CustomMDX(props) {
   return (
-    <MDXRemote
-      {...props}
-      components={{ ...components, ...(props.components || {}) }}
-    />
+    <div className={atkinson.className}>
+      <MDXRemote
+        {...props}
+        components={{ ...components, ...(props.components || {}) }}
+      />
+    </div>
   )
 }

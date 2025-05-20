@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
+
 type Metadata = {
   title: string
   publishedAt: string
@@ -51,6 +52,10 @@ function getMDXData(dir) {
 
 export function getBlogPosts() {
   return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
+}
+
+export function getProjects() {
+  return getMDXData(path.join(process.cwd(), 'app', 'projects', 'posts'))
 }
 
 export function formatDate(date: string, includeRelative = false) {

@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
+import { Fraunces } from 'next/font/google'
+const fraunces = Fraunces({ subsets: ['latin'] })
 
 export function BlogPosts() {
   let allBlogs = getBlogPosts()
@@ -25,7 +27,7 @@ export function BlogPosts() {
               <p className="text-neutral-600 dark:text-neutral-400 w-[100px] tabular-nums">
                 {formatDate(post.metadata.publishedAt, false)}
               </p>
-              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
+              <p className={`${fraunces.className} text-neutral-900 dark:text-neutral-100 tracking-tight text-2xl`}>
                 {post.metadata.title}
               </p>
             </div>
