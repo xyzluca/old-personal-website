@@ -6,7 +6,7 @@ export type Experience = {
   startDate: string
   endDate: string | null
   description: string
-  url?: string  // Optional URL zur Firmenwebsite oder LinkedIn-Profil
+  url?: string  // Optional URL to the company website or LinkedIn profile
 }
 
 export const experiences: Experience[] = [
@@ -21,7 +21,7 @@ export const experiences: Experience[] = [
   {
     company: 'RST-Gruppe',
     title: 'Student Assistant',
-    startDate: '2021    ',
+    startDate: '2021',
     endDate: '2023',
     description: 'Student Assistant in E-Commerce',
     url: 'https://www.rst-ib.de'
