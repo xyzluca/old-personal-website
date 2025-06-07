@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import { CustomMDX } from 'app/components/mdx'
 import { getProjects, formatDate } from 'app/blog/utils'
+import { baseUrl } from 'app/sitemap'
 
 export async function generateStaticParams() {
   return getProjects().map((proj) => ({
@@ -17,7 +18,7 @@ export function generateMetadata({ params }) {
     openGraph: {
       title: proj.metadata.title,
       description: proj.metadata.summary,
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/projects/${proj.slug}`
+      url: `${baseUrl}/projects/${proj.slug}`
       // …any other OG fields you use for blog
     },
   }
