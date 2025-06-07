@@ -1,4 +1,4 @@
-import { ExperienceList } from 'app/components/experience'
+import { ExperienceList } from '../components/experience'
 
 export const metadata = {
   title: 'Experience',

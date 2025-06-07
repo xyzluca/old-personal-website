@@ -1,4 +1,4 @@
-import { getBlogPosts, getProjects } from 'app/blog/utils'
+import { getBlogPosts, getProjects } from './blog/utils'
 
 export const baseUrl = 'https://lucakursawe.xyz'
 

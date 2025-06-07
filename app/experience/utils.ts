@@ -1,4 +1,4 @@
-import { formatDate } from 'app/blog/utils'
+import { formatDate } from '../blog/utils'
 
 export type Experience = {
   company: string

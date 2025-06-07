@@ -1,5 +1,5 @@
-import { getExperiences, formatExperienceDate } from 'app/experience/utils'
-import { formatDate } from 'app/blog/utils'
+import { getExperiences, formatExperienceDate } from '../experience/utils'
+import { formatDate } from '../blog/utils'
 
 export function ExperienceList() {
   const allExperiences = getExperiences()

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getProjects, formatDate } from 'app/blog/utils'
+import { getProjects, formatDate } from '../blog/utils'
 import { Fraunces } from 'next/font/google'
 
 export default function ProjectsPage() {
