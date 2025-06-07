@@ -65,18 +65,21 @@ export function formatDate(date: string, includeRelative = false) {
   }
   let targetDate = new Date(date)
 
-  let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear()
-  let monthsAgo = currentDate.getMonth() - targetDate.getMonth()
-  let daysAgo = currentDate.getDate() - targetDate.getDate()
+  let diffMs = targetDate.getTime() - currentDate.getTime()
+  let diffDays = Math.round(diffMs / (1000 * 60 * 60 * 24))
+  let diffSign = Math.sign(diffDays)
+  let absDays = Math.abs(diffDays)
 
   let formattedDate = ''
 
-  if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`
-  } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`
-  } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`
+  if (absDays >= 365) {
+    let years = Math.floor(absDays / 365)
+    formattedDate = diffSign < 0 ? `${years}y ago` : `in ${years}y`
+  } else if (absDays >= 30) {
+    let months = Math.floor(absDays / 30)
+    formattedDate = diffSign < 0 ? `${months}mo ago` : `in ${months}mo`
+  } else if (absDays > 0) {
+    formattedDate = diffSign < 0 ? `${absDays}d ago` : `in ${absDays}d`
   } else {
     formattedDate = 'Today'
   }
