@@ -94,7 +94,7 @@ export default function RootLayout({
         <meta name="geo.position" content="51.1657;10.4515" />
         <meta name="ICBM" content="51.1657, 10.4515" />
       </head>
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto font-atkinson">
+      <body className="antialiased max-w-4xl mx-4 mt-8 lg:mx-auto font-atkinson">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

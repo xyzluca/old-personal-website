@@ -116,20 +116,8 @@ export function UnsplashGallery() {
 
   return (
     <>
-      {/* Navigation for fullscreen gallery */}
-      <div className="sticky top-0 z-40 bg-white/90 dark:bg-black/90 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-800">
-        <div className="max-w-xl mx-4 lg:mx-auto px-2 md:px-0 py-4">
-          <a 
-            href="/" 
-            className="inline-flex items-center text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
-          >
-            ← Back to Home
-          </a>
-        </div>
-      </div>
-
-      {/* Minimal Pinterest-style Gallery */}
-      <div className="py-8 px-6 w-full">
+      {/* Pinterest-style Gallery */}
+      <div className="w-full">
         <div className="columns-2 sm:columns-3 md:columns-4 lg:columns-5 xl:columns-6 gap-6 space-y-6">
           {photos.map((photo, index) => (
             <div 

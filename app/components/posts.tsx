@@ -1,13 +1,11 @@
 import Link from 'next/link'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
-import { Fraunces } from 'next/font/google'
-const fraunces = Fraunces({ subsets: ['latin'] })
 
 export function BlogPosts() {
   let allBlogs = getBlogPosts()
 
   return (
-    <div>
+    <div className="space-y-6">
       {allBlogs
         .sort((a, b) => {
           if (
@@ -20,17 +18,22 @@ export function BlogPosts() {
         .map((post) => (
           <Link
             key={post.slug}
-            className="flex flex-col space-y-1 mb-4"
+            className="block group hover:opacity-80 transition-opacity"
             href={`/blog/${post.slug}`}
           >
-            <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
-              <p className={`${fraunces.className} text-neutral-900 dark:text-neutral-100 tracking-tight text-2xl`}>
-                {post.metadata.title}
-              </p>
+            <div className="flex items-start justify-between space-x-4">
+              <div className="flex-1 space-y-1">
+                <h4 className="text-lg font-medium text-neutral-900 dark:text-neutral-100 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors">
+                  {post.metadata.title}
+                </h4>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2">
+                  {post.metadata.summary}
+                </p>
+              </div>
+              <div className="flex-shrink-0 text-xs text-neutral-500 font-mono">
+                {formatDate(post.metadata.publishedAt, false)}
+              </div>
             </div>
-            <p className="text-neutral-600 dark:text-neutral-400 text-sm font-atkinson">
-              {post.metadata.summary}
-              </p>
           </Link>
         ))}
     </div>

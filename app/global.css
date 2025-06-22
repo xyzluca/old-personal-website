@@ -1,28 +1,28 @@
 @import 'tailwindcss';
 
 ::selection {
-  background-color: green;
+  background-color: #6366f1;
   color: #fefefe;
 }
 
 :root {
-  --sh-class: green;
-  --sh-identifier: orangered;
-  --sh-sign: green;
-  --sh-string: orangered;
-  --sh-keyword: green;
-  --sh-comment: orangered;
-  --sh-jsxliterals: green;
-  --sh-property: orangered;
-  --sh-entity: green;
+  --sh-class: #6366f1;
+  --sh-identifier: #f59e0b;
+  --sh-sign: #6366f1;
+  --sh-string: #f59e0b;
+  --sh-keyword: #6366f1;
+  --sh-comment: #f59e0b;
+  --sh-jsxliterals: #6366f1;
+  --sh-property: #f59e0b;
+  --sh-entity: #6366f1;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --sh-class: green;
-    --sh-identifier: orangered;
-    --sh-keyword: green;
-    --sh-string: orangered;
+    --sh-class: #6366f1;
+    --sh-identifier: #f59e0b;
+    --sh-keyword: #6366f1;
+    --sh-string: #f59e0b;
   }
   html {
     color-scheme: dark;
@@ -31,6 +31,14 @@
 
 html {
   min-width: 360px;
+  scroll-behavior: smooth;
+}
+
+/* Smooth scrolling for anchor links */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 .prose .anchor {
@@ -150,3 +158,11 @@ table {
 }
 
 /* Override Fraunces for specific elements */
+
+/* Line clamp utility for text truncation */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
